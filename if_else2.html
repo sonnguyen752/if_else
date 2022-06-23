@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="">
+        <p>username</p> <br>
+        <input type="text" id="name"><br>
+        <p>password</p> <br>
+        <input type="text" id="pass">
+    </form> -->
+    <script>
+        let nhapten = prompt("nhap ten tu ban phim");
+        // let pass = document.getElementById("pass");
+        if (nhapten == ("Admin")) {
+            let pass = prompt("moi nhap mat khau")
+            if (pass== ("TheMaster")) {
+                alert ("Welcome")
+                } else if (pass== ("null")) {
+                alert ("Canceled")
+                } else {
+                    alert ("Wrong password")
+                }
+            } else if (nhapten == ("null")) {
+                alert ("canceld")
+            } else {
+                alert ("I don’t know you")
+            }
+        
+    </script>
+</body>
+</html>
