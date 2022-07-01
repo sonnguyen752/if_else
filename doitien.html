@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doitienquocte</title>
+</head>
+<body>
+    <!-- <form action=""> -->
+        <table >
+            <tr>
+                <td>Amount</td>
+                <td>From Currency</td>
+                <td>To Currency</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="sotien"></td>
+                <td>
+                    <select name="from" id="from">
+                    <option value="VNĐ">VND</option>
+                    <option value="USD">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="to" id="to">
+                    <option value="VNĐ">VND</option>
+                    <option value="USD">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                    </select>
+                </td>
+                <td><button onclick="conver()">Convert</button></td>
+            </tr>
+        </table>
+        <!-- </form> -->
+       
+    <p id="ketqua"></p>
+</body>
+</html>
+<script>
+    function conver() {
+        let vnd = 1;
+        let usd = 23110;
+        let eur = 23714;
+        let gbp = 27423;
+        let sotien = +document.getElementById("sotien").value;
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let resuft;
+           switch (from) {
+            case "VNĐ": 
+                switch (to) {
+                    case "VNĐ": 
+                    resuft = sotien;
+                    break;
+                    case "USD":
+                    resuft = sotien / usd;
+                    break; 
+                    case "eur": 
+                    resuft = sotien / eur;
+                    break;
+                    case "gbp": 
+                    resuft = sotien / gbp;
+                } break;         
+            case "USD": 
+            switch (to) {
+                    case "VNĐ": 
+                    resuft = sotien * usd;
+                    break;
+                    case "USD":
+                    resuft = sotien;
+                    break; 
+                    case "eur": 
+                    resuft = sotien * usd / eur;
+                    break;
+                    case "gbp": 
+                    resuft = sotien * usd / gbp;
+                    break;
+                } break;
+            case "eur": 
+            switch (to) {
+                    case "VNĐ": 
+                    resuft = sotien * eur;
+                    break;
+                    case "eur":
+                    resuft = sotien;
+                    break; 
+                    case "USD": 
+                    resuft = sotien * eur / usd;
+                    break;
+                    case "gbp": 
+                    resuft = sotien * eur / gbp;
+                    break;
+                } break; 
+            case "gbp": 
+            switch (to) {
+                    case "VNĐ": 
+                    resuft = sotien * gbp;
+                    break;
+                    case "gbp":
+                    resuft = sotien;
+                    break; 
+                    case "eur": 
+                    resuft = sotien * gbp / eur;
+                    break;
+                    case "USD": 
+                    resuft = sotien * gbp / usd;
+                    break;
+                } break;   
+            }
+    document.getElementById("ketqua").innerHTML = resuft;
+    }
+   </script>
