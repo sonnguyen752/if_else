@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giahoaqua</title>
+</head>
+<body>
+    <h1><b>Giá hoa quả</b></h1> <br>
+  
+        <input type="text" id="loaihoaqua">
+        <button onclick="giahoaqua()">xem giá</button>
+        <p id="giacu">giá loại hoa quả</p>
+    
+</body>
+</html>
+<script>
+    
+        function giahoaqua() {
+            let hoaqua = document.getElementById("loaihoaqua").value;
+            let gia ="";
+        switch (hoaqua) {
+        case "ổi":
+            gia = "50000 VNĐ/kg";
+            break;
+        case "cam":
+            gia = "40000 VNĐ/kg";
+            break;
+        case "xoài": 
+            gia = "30000 VNĐ/kg";
+            break;
+        }  
+       document.getElementById("giacu").innerHTML = gia;
+       }  
+</script>
