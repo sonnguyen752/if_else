@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="" > -->
+        <h1><b>Tinh diem DH khoi D</b></h1>
+        <table>
+        <tr>
+            <td>Mon toan</td>
+            <td><input type="number" id="toan"></td> 
+        </tr>
+        <tr>
+            <td>Mon van</td>
+            <td><input type="number" id="van"></td>
+        </tr>
+        <tr>
+            <td>Mon Anh</td>
+            <td><input type="number" id="anh"></td>
+        </tr>
+        <tr>
+            <td>Khu vuc</td>
+            <td><select name="vung" id="vung">
+                <option value="KV1">KV1</option>
+                <option value="KV2-NT">KV2-NT</option>
+                <option value="KV2">KV2</option>
+                <option value="KV3">KV3</option>
+            </select></td>
+        </tr>
+        </table>
+        <button onclick="tinhdiem()" >Tinh diem</button>
+        <p id="hiendiem" style="color:red ;"></p>
+    <!-- </form> -->
+</body>
+</html>
+<script>
+    function tinhdiem() {
+    let diemvan = +document.getElementById("van").value;
+    let diemtoan = +document.getElementById("toan").value;
+    let diemanh = +document.getElementById("anh").value;
+    let KV = document.getElementById("vung").value;
+    let diemKV ;
+    switch (KV) {
+        case "KV1": 
+        diemKV = 0.75;
+        break;
+        case "KV2-NT": 
+        diemKV = 0.5;
+        break;
+        case 'KV2': 
+        diemKV = 0.25;
+        break;
+        case 'KV3': 
+        diemKV = 0;
+        break;
+    } 
+   let tongdiem = diemanh + diemtoan + diemvan + diemKV;
+   document.getElementById("hiendiem").innerHTML = ("Tổng điểm ĐH khối D của bạn là: " + tongdiem)
+    }
+</script>
