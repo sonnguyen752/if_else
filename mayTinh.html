@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>máy tính bỏ túi</title>
+</head>
+<body>
+    <form action="">
+    <table >
+        <tr>
+            <td colspan="3"><input class = " display" id = "display" type="text" value="0"></td>
+            <td ><input class = "" id = "ac" type="button" onclick = 'this.form.display.value = 0' value="AC"></td>
+
+        </tr>
+        <tr>
+            <td><input class = "1 " type="button" value="1" onclick="addChar(this.form.display,'1')" ></td>
+            <td><input class = "1 " type="button" value="2" onclick="addChar(this.form.display, '2')"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'3')" value="3"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'4')" value="4"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'0')"value="0"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="addChar(this.form.display,'5')"value="5"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'6')"value="6"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'7')"value="7"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'8')"value="8"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'9')"value="9"></td>
+
+        </tr>
+        <tr>
+            <td><input type="button" onclick="addChar(this.form.display,'+')"value="+"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'-')"value="-"></td>
+            <td><input type="button" onclick="addChar(this.form.display,'*')"value="*"></td>
+            <td><input type="button" onclick="calculate()"value="="></td>
+            <td><input type="button" onclick="addChar(this.form.display,'/')"value="/"></td>
+        </tr>
+    </table>
+    </form>
+    <script>
+        function addChar(output, char) {
+            if(output.value == null || output.value == 0) {
+                output.value = char;
+            } else {
+                output.value += char;
+            }
+        }
+        function calculate() {
+            // var x = (display.value);
+            for(i= 0; i< (display.value).length; i++){
+               var ch = (display.value).charAt(i);
+               if(ch == '-'){
+                (display.value) = (display.value).substring(0,i) - (display.value).substring(i+1,(display.value).length)
+               } 
+               else if (ch == '+'){
+                (display.value) = Number((display.value).substring(0,i)) + Number((display.value).substring(i+1,(display.value).length))
+               }
+               else if (ch == '/'){
+                (display.value) = Number((display.value).substring(0,i)) / Number((display.value).substring(i+1,(display.value).length))
+               }
+               else if (ch == '*'){
+                (display.value) = Number((display.value).substring(0,i)) * Number((display.value).substring(i+1,(display.value).length))
+               }
+            }
+            
+        }
+    </script>
+</body>
+</html>
